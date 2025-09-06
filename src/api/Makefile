@@ -54,10 +54,10 @@ build: config
 	# we need to have *something* as secret key
 	echo "" | sha256sum| cut -d\  -f 1 > $(DESTDIR)$(OBS_API_PREFIX)/config/secret.key
 	cd $(DESTDIR)$(OBS_API_PREFIX) ;\
-	bin/rake assets:precompile RAILS_ENV=production RAILS_GROUPS=assets || exit 1 ;\
+	/bin/rake assets:precompile RAILS_ENV=production RAILS_GROUPS=assets || exit 1 ;\
 	rm -rf tmp/cache/sass tmp/cache/assets config/secret.key ;\
-	bin/bundle config --local frozen 1 || exit 1 ;\
-	bin/bundle config --local without development:test:assets || exit 1 ;\
+	/bin/bundle config --local frozen 1 || exit 1 ;\
+	/bin/bundle config --local without development:test:assets || exit 1 ;\
 	# reinstall
 	$(INSTALL) config/database.yml.example $(DESTDIR)$(OBS_API_PREFIX)/config/database.yml
 	# patch our version inside

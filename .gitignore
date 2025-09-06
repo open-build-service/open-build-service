@@ -1,3 +1,6 @@
+*.lock
+vendor/
+.bundle/
 # Project specific ignores IN ALPHABETIC ORDER
 /docs/api/restility/doc
 /docs/api/restility/log
